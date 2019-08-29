@@ -1,0 +1,60 @@
+img#about {
+  align-self: center;
+}
+
+/* app grid ***************************************************************** */
+.appNav, .appRoutes, .appGrid, .appMessage, .appFooter {
+  margin: 0;
+  padding: 0;
+}
+
+.appGrid {
+  display: grid;
+  grid-template-rows: 10vh 60vh 20vh 10vh;
+  grid-template-columns: 100vw;
+}
+
+.appNav {
+  grid-area: 1/1/2/-1;
+}
+
+.appRoutes {
+  grid-area: 2/1/4/-1;
+}
+
+.appMessage {
+  grid-area: 3/1/-1/-1;
+  overflow: auto;
+}
+
+.appFooter {
+  grid-area: 4/1/-1/-1;
+}
+
+@media (min-width: 767px) {
+  .appGrid {
+    display: grid;
+    grid-template-rows: 10vh 30vh 30vh 20vh 10vh;
+    grid-template-columns: 10vw 58vw 30vw 2vw;
+  }
+
+  .appNav {
+    grid-area: 1/1/-1/2;
+    z-index: 1;
+  }
+
+  .appRoutes {
+    grid-area: 1/2/5/-1;
+    z-index: 1;
+  }
+
+  .appMessage {
+    grid-area: 4/3/5/4;
+    overflow: auto;
+  }
+
+  .appFooter {
+    grid-area: 5/1/-1/-1;
+  }
+}
+/* end app grid ************************************************************* */

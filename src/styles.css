@@ -1,0 +1,166 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.appContainer {
+  position: relative;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+@font-face {
+  font-family: Overpass;
+  src: url("./app/fonts/overpass-nf-regular-complete.otf") format("opentype");
+}
+
+i {
+  width: 24px, 64px;
+  height: 24px, 64px;
+  font-family: "Overpass";
+  font-style: normal;
+}
+
+.NF  {
+  font-family: "Overpass";
+  font-style: normal;
+}
+
+/* create new and edit existing todos */
+.writeTodoContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 5vh 2vw;
+}
+
+.writeTodoContainer .newTodo, .writeTodoContainer .editTodo {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.writeTodoContainer .toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1vh 1vw;
+}
+
+.writeTodoContainer .toolbar > div {
+  margin-right: 1vw;
+}
+
+.writeTodoContainer .textArea {
+  margin-bottom: 2vh;
+  resize: none;
+}
+
+/* common classes */
+
+.bg-selected {
+  background: rgba(210, 150, 210, 0.3);
+}
+
+.no-margin {
+  margin: 0px;
+}
+
+.no-space {
+  margin: 0px;
+  padding: 0px;
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+.todoItem {
+  display: grid;
+  grid-template-rows: 1.5fr 0.5fr 0.5fr;
+  grid-template-columns: 1fr;
+  transition-property: background;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-duration: 3s;
+
+  border: 0.5px groove rgba(210, 210, 210, 0.5);
+}
+
+@media (min-width: 639px) {
+  .todoItem {
+    grid-template-rows: 1.5fr 0.5fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .todoItemText {
+    grid-area: 1/1/2/-1;
+  }
+
+  .todoItemInfo {
+    grid-area: 2/1/-1/2;
+    align-self: center;
+  }
+
+  .todoItemActions {
+    grid-area: 2/2/-1/-1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 767px) {
+  .todoItem {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .todoItemText {
+    grid-area: 2/1/-1/-1;
+  }
+
+  .todoItemInfo {
+    grid-area: 1/1/2/2;
+  }
+
+  .todoItemActions {
+    grid-area: 1/2/2/-1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+/* todoView settings */
+
+.routeGrid {
+  display: grid;
+  grid-template-rows: 10vh 70vh;
+}
+
+.actions {
+  grid-area: 1/1/2/-1;
+}
+
+.todoView {
+  grid-area: 2/1/-1/-1;
+  overflow: auto;
+}

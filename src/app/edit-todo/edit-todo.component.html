@@ -1,0 +1,27 @@
+<div class="writeTodoContainer">
+  <h6 class="text-center"><b>Edit Todo</b> [{{editLabel}}: {{dateString}} - {{timeString}}]</h6>
+  <div class="editTodo">
+    <div class="toolbar">
+      <div class="NF">
+        <button (click)="toggleStared()" [class]="staredClass" [title]="staredTitle"></button>
+      </div>
+      <div class="NF">
+        <button (click)="toggleHidden()" [class]="hiddenClass" [title]="hiddenTitle"></button>
+      </div>
+      <div class="NF">
+        <button class="btn btn-sm btn-light nf-fa-undo" (click)="clearText()" title="Clear todo text!"></button>
+      </div>
+      <div class="NF">
+        <button (click)="updateTodo()" [disabled]="unchanged"
+          class="btn btn-sm btn-light nf-fa-save" title="Save changes!"></button>
+      </div>
+      <div class="NF">
+        <button class="btn btn-sm btn-light nf-mdi-cancel" (click)="goBack()" title="Cancel and go back"></button>
+      </div>
+    </div>
+  </div>
+  <textarea [formControl]="text" (change)="saveTemporary()"
+    class="form-control textArea" aria-label="Text input with checkbox"
+    maxlength=1024 rows=6 required autofocus>
+  </textarea>
+</div>

@@ -1,0 +1,40 @@
+.about {
+  height: 80vh;
+  overflow: auto;
+}
+
+.card {
+  margin: 2vh 2vw 5vh 2vw;
+  overflow: auto;
+}
+
+img {
+  max-width: 20vw;
+}
+
+@media (min-width: 767px) {
+  .about {
+    display: grid;
+    height: 90vh;
+    grid-template-columns: 5vw 30vw 5vw 30vw 5vw;
+    grid-template-rows: 1vh 80vh 1vh;
+    width: 90vw;
+    padding: 5vh 10vw;
+  }
+
+  #app {
+    grid-area: 2/2/3/3;
+  }
+
+  #developer {
+    grid-area: 2/4/3/5;
+  }
+
+  img {
+    width: 10vw;
+  }
+
+  .about > div {
+    margin-bottom: unset;
+  }
+}

@@ -1,0 +1,13 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media (min-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: unset;
+    height: 90vh;
+  }
+}

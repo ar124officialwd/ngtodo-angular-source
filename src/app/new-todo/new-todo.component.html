@@ -1,0 +1,26 @@
+<div class="writeTodoContainer">
+  <h6 class="text-center"><b>New Todo</b></h6>
+  <div class="newTodo">
+    <div class="toolbar">
+      <div class="NF">
+        <button (click)="toggleStared()" [class]="staredClass"></button>
+      </div>
+      <div class="NF">
+        <button (click)="toggleHidden()" [class]="hiddenClass"></button>
+      </div>
+      <div class="NF">
+        <button class="btn btn-sm btn-light nf-fa-undo" (click)="clearText()"></button>
+      </div>
+      <div class="NF">
+        <button class="btn btn-sm btn-light nf-fa-save" (click)="saveTodo()"></button>
+      </div>
+      <div class="NF">
+        <button class="btn btn-sm btn-light nf-mdi-cancel" (click)="goBack()"></button>
+      </div>
+    </div>
+    <textarea  [formControl]="text" class="form-control textArea"
+      aria-label="Text input with checkbox" placeholder="Enter your todo text here"
+      maxlength=1024 rows=6 required autofocus>
+    </textarea>
+  </div>
+</div>

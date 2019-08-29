@@ -1,0 +1,22 @@
+<div class="appContainer appGrid">
+  <div class="appNav">
+    <app-dashboard></app-dashboard>
+  </div>
+  <div class="appRoutes">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="appMessage">
+    <app-message></app-message>
+  </div>
+  <footer class="appFooter bg-dark text-secondary p-3 text-center bottomBar">
+    <a routerLink="/about"><img id="about" src="../favicon.ico"
+      width="16vw" height="16vh" style="margin-right: 1vw"></a>
+    <i class="nf-mdi-code_braces text-light"></i>ed with
+    <i class="nf nf-fa-heart text-danger"></i> using
+    <i class="nf-mdi-nodejs text-success"></i>
+    <i class="nf-dev-angular text-danger"></i>
+    <i class="nf-dev-visualstudio text-primary"></i>
+    <i class="nf-custom-vim text-success"></i> on
+    <i class="nf-linux-archlinux text-primary"></i>
+  </footer>
+</div>

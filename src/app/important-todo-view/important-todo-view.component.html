@@ -1,0 +1,81 @@
+<div class="routeGrid">
+  <div class="d-flex flex-row justify-content-center bg-light p-1 actions">
+    <span class="flex-item p-0 m-0">
+      <button *ngIf="!allSelected; else select" (click)="selectAll()" class="btn btn-sm btn-outline-dark m-1">
+        <i class="nf-fa-check"></i>
+      </button>
+    </span>
+    <ng-template #select>
+      <button (click)="deselectAll()" class="btn btn-sm btn-outline-dark m-1">
+        <i class="nf-fa-check_circle"></i>
+      </button>
+    </ng-template>
+    <span class="flex-item p-0 m-0">
+      <button (click)="unstarSelected()" class="btn btn-sm btn-outline-dark m-1">
+        <i class="nf-fa-star_o"></i>
+      </button>
+    </span>
+    <span class="flex-item p-0 m-0">
+      <button (click)="hideSelected()" class="btn btn-sm btn-outline-dark m-1">
+        <i class="nf-fa-eye_slash"></i>
+      </button>
+    </span>
+    <span class="flex-item p-0 m-0">
+      <button (click)="deleteSelected()" class="btn btn-sm btn-outline-dark m-1">
+        <i class="nf-fa-trash"></i>
+      </button>
+    </span>
+    <span *ngIf="!ascending; else descending" class="flex-item p-0 m-0">
+      <button (click)="sortAscending()" class="btn btn-sm btn-outline-dark m-1">
+        <i class="nf-mdi-sort_ascending"></i>
+      </button>
+    </span>
+    <ng-template #descending>
+      <span class="flex-item p-0 m-0">
+        <button (click)="sortDescending()" class="btn btn-sm btn-outline-dark m-1">
+          <i class="nf-mdi-sort_descending"></i>
+        </button>
+      </span>
+    </ng-template>
+  </div>
+
+  <div *ngIf="todos.length; else emptyMessage" class="todoView">
+    <div *ngFor="let todo of todos" [class]="classes[todo.id] || todoItemClass">
+      <div class="todoItemText">
+        {{todo.text}}
+      </div>
+      <div class="todoItemInfo">
+        <span *ngIf="todo.updated"><b>Updated</b>:
+          {{todo.updated.dateString}} - {{todo.updated.timeString}}
+        </span>
+        <span *ngIf="!todo.updated"><b>Created</b>:
+          {{todo.created.dateString}} - {{todo.created.timeString}}
+        </span>
+      </div>
+      <div class="todoItemActions">
+        <button *ngIf="!isSelected(todo.id); else deSelect" (click)="toggleChecked(todo.id)" title="select todo"
+          class="card-link btn btn-sm m-1 btn-outline-dark">
+          <i class="nf-fa-check"></i></button>
+        <ng-template #deSelect>
+          <button title="de-select todo" (click)="toggleChecked(todo.id)"
+            class="card-link btn btn-sm m-1 btn-outline-dark">
+            <i class="nf-fa-check_circle"></i></button>
+        </ng-template>
+        <button (click)="unsetStar(todo.id)" title="mark as stared" class="card-link btn btn-sm m-1 btn-outline-primary">
+          <i class="nf-fa-star_o"></i></button>
+        <button (click)="hide(todo.id)" title="mark as hidden" class="card-link btn btn-sm m-1 btn-outline-primary">
+          <i class="nf-fa-eye_slash"></i></button>
+        <button (click)="edit(todo.id)" title="edit todo" class="card-link btn btn-sm m-1 btn-outline-secondary">
+          <i class="nf-fa-edit"></i></button>
+        <button (click)="delete(todo.id)" title="delete todo" class="card-link btn btn-sm m-1 btn-outline-danger">
+          <i class="nf-fa-trash"></i></button>
+      </div>
+    </div>
+  </div>
+  <ng-template #emptyMessage>
+    <div class="m-auto text-center">
+      <i class="nf-fa-flushed"></i>There is nothing to-do<br>
+      <a routerLink="/new"><i class="nf-fa-plus"></i> Add New</a>
+    </div>
+  </ng-template>
+</div>

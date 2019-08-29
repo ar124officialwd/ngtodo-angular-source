@@ -1,0 +1,50 @@
+.messageComponent {
+  background-color: black;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+  padding: 1vh 1vw;
+  width: 100vw;
+}
+
+.message {
+  border: none;
+  display: grid;
+  grid-template-columns: 5vw 85vw 5vw 5vw;
+  grid-template-rows: 5vh;
+  margin-bottom: 1vh;
+  width: 100vw;
+  z-index: 100;
+}
+
+.message .messageText {
+  grid-area: 1/2/-1/3;
+  padding: 0.1fr;
+}
+
+.message .messageClose {
+  grid-area: 1/3/-1/4;
+  padding: 0.1fr;
+}
+
+@media (min-width: 767px) {
+  .message {
+    width: unset;
+    border: none;
+    display: grid;
+    grid-template-columns: 25vw 5vw;
+    grid-template-rows: 5vh;
+    width: 30vw;
+  }
+
+  .message .messageText {
+    grid-area: 1/1/-1/2;
+    padding: 0.1fr;
+  }
+
+  .message .messageClose {
+    grid-area: 1/2/-1/-1;
+    padding: 0.1fr;
+  }
+}

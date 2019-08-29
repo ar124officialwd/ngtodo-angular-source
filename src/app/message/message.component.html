@@ -1,0 +1,12 @@
+<div *ngIf="messages.length" class="messageComponent bg-dark">
+  <div *ngFor="let message of messages" class="message">
+    <div class="messageText text-light text-sm">
+      {{message.message}}
+    </div>
+    <div class="messageClose">
+      <button (click)="remove(message.id)"
+        class="btn btn-outline-primary btn-sm">
+        <i class="nf-mdi-cancel"></i></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+div {
+    width: 96%;
+    margin: 2%;
+    border-radius: 0%;
+}
+
+div.options {
+    margin: 0%;
+    width: 100%;
+}
+
+#todoView {
+  counter-reset: todo;
+}
+
+.card-title span.counter::before {
+  counter-increment: todo;
+  content: " " counter(todo) " - "
+}
