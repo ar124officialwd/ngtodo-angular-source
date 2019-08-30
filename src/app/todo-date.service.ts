@@ -1,5 +1,4 @@
 import { TodoDate } from './TodoDate';
-import { Injectable } from '@angular/core';
 
 const months = [
   'January',
@@ -16,10 +15,6 @@ const months = [
   'December'
 ];
 
-
-@Injectable({
-  providedIn: 'root'
-})
 export class TodoDateService {
   private date: Date;
 
